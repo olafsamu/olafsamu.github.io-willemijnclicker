@@ -3,12 +3,14 @@
 <head>
 
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Willemijn Clicker 2.0</title>
 
 
     <style>
+
 
         /* =====================================================
            BASIC
@@ -41,7 +43,7 @@
 
 
         /* =====================================================
-           MAIN LAYOUT
+           MAIN PAGE
         ===================================================== */
 
         .page {
@@ -56,7 +58,7 @@
 
 
         /* =====================================================
-           TITLE
+           HEADER
         ===================================================== */
 
         header {
@@ -86,11 +88,10 @@
 
 
         /* =====================================================
-           GAME GRID
+           GAME LAYOUT
         ===================================================== */
 
         .game-layout {
-
             display: grid;
 
             grid-template-columns:
@@ -107,8 +108,8 @@
         ===================================================== */
 
         .panel {
-
-            background: rgba(255, 255, 255, 0.88);
+            background:
+                rgba(255, 255, 255, 0.9);
 
             border-radius: 22px;
 
@@ -122,7 +123,6 @@
 
 
         .panel h2 {
-
             color: #ff6f91;
 
             font-size: 25px;
@@ -138,7 +138,6 @@
         ===================================================== */
 
         .score-panel {
-
             text-align: center;
 
             margin-bottom: 20px;
@@ -146,7 +145,6 @@
 
 
         .score {
-
             font-size: 58px;
 
             font-weight: bold;
@@ -158,7 +156,6 @@
 
 
         .score-label {
-
             color: #777;
 
             margin-top: 8px;
@@ -168,19 +165,18 @@
 
 
         .stats {
-
             margin-top: 18px;
 
             display: grid;
 
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns:
+                1fr 1fr;
 
             gap: 10px;
         }
 
 
         .stat {
-
             background: #fff3f7;
 
             border-radius: 12px;
@@ -192,7 +188,6 @@
 
 
         .stat strong {
-
             display: block;
 
             font-size: 20px;
@@ -202,11 +197,10 @@
 
 
         /* =====================================================
-           WILLEMIJN
+           WILLEMIJN CLICK AREA
         ===================================================== */
 
         .click-area {
-
             text-align: center;
 
             position: relative;
@@ -214,7 +208,6 @@
 
 
         .willemijn-button {
-
             border: none;
 
             background: transparent;
@@ -225,24 +218,24 @@
 
             border-radius: 30px;
 
-            transition: transform 0.12s;
+            transition:
+                transform 0.12s;
         }
 
 
         .willemijn-button:hover {
-
-            transform: scale(1.04);
+            transform:
+                scale(1.04);
         }
 
 
         .willemijn-button:active {
-
-            transform: scale(0.91);
+            transform:
+                scale(0.91);
         }
 
 
         .willemijn-image {
-
             display: block;
 
             width: 380px;
@@ -322,15 +315,15 @@
                     hue-rotate(360deg)
                     saturate(1.7);
             }
+
         }
 
 
         /* =====================================================
-           CURRENT FORM
+           CURRENT WILLEMIJN FORM
         ===================================================== */
 
         .form-name {
-
             display: inline-block;
 
             margin-top: 15px;
@@ -348,11 +341,10 @@
 
 
         /* =====================================================
-           +1 CLICK EFFECT
+           CLICK +1 EFFECT
         ===================================================== */
 
         .plus-one {
-
             position: fixed;
 
             pointer-events: none;
@@ -373,7 +365,6 @@
         @keyframes floatUp {
 
             0% {
-
                 opacity: 1;
 
                 transform:
@@ -381,15 +372,14 @@
                     scale(1);
             }
 
-
             100% {
-
                 opacity: 0;
 
                 transform:
                     translateY(-90px)
                     scale(1.4);
             }
+
         }
 
 
@@ -398,7 +388,6 @@
         ===================================================== */
 
         .shop-item {
-
             background: #fff7fa;
 
             border-radius: 15px;
@@ -410,20 +399,20 @@
             border:
                 2px solid transparent;
 
-            transition: 0.2s;
+            transition:
+                0.2s;
         }
 
 
         .shop-item:hover {
-
             border-color: #ffb3c6;
 
-            transform: translateY(-2px);
+            transform:
+                translateY(-2px);
         }
 
 
         .shop-item h3 {
-
             color: #ff6f91;
 
             margin-bottom: 5px;
@@ -431,7 +420,6 @@
 
 
         .shop-item p {
-
             font-size: 14px;
 
             color: #666;
@@ -441,7 +429,6 @@
 
 
         .buy-button {
-
             width: 100%;
 
             border: none;
@@ -458,20 +445,20 @@
 
             cursor: pointer;
 
-            transition: 0.2s;
+            transition:
+                0.2s;
         }
 
 
         .buy-button:hover:not(:disabled) {
-
             background: #ffc44d;
 
-            transform: scale(1.02);
+            transform:
+                scale(1.02);
         }
 
 
         .buy-button:disabled {
-
             background: #ddd;
 
             color: #999;
@@ -485,7 +472,6 @@
         ===================================================== */
 
         .achievement {
-
             background: #f5f5f5;
 
             padding: 12px;
@@ -496,12 +482,12 @@
 
             opacity: 0.45;
 
-            transition: 0.3s;
+            transition:
+                0.3s;
         }
 
 
         .achievement.unlocked {
-
             opacity: 1;
 
             background: #fff0b8;
@@ -512,7 +498,6 @@
 
 
         .achievement-title {
-
             font-weight: bold;
 
             margin-bottom: 3px;
@@ -520,7 +505,6 @@
 
 
         .achievement-description {
-
             font-size: 13px;
 
             color: #666;
@@ -528,11 +512,100 @@
 
 
         /* =====================================================
-           RANDOM EVENTS
+           RANDOM EVENT BALLOON
+        ===================================================== */
+
+        .event-balloon {
+            position: fixed;
+
+            top: 115px;
+
+            left: 50%;
+
+            transform:
+                translateX(-50%)
+                scale(0);
+
+            width: 90px;
+
+            height: 110px;
+
+            border: none;
+
+            background: #ff6f91;
+
+            border-radius:
+                50% 50% 45% 45%;
+
+            cursor: pointer;
+
+            font-size: 50px;
+
+            z-index: 9999;
+
+            box-shadow:
+                0 10px 25px rgba(0, 0, 0, 0.2);
+
+            transition:
+                transform 0.3s,
+                box-shadow 0.2s;
+        }
+
+
+        .event-balloon::after {
+            content: "";
+
+            position: absolute;
+
+            width: 3px;
+
+            height: 35px;
+
+            background: #555;
+
+            left: 50%;
+
+            bottom: -30px;
+
+            transform:
+                translateX(-50%);
+        }
+
+
+        .event-balloon.show {
+            transform:
+                translateX(-50%)
+                scale(1);
+
+            animation:
+                balloonFloat 1.3s ease-in-out infinite alternate;
+        }
+
+
+        .event-balloon:hover {
+            box-shadow:
+                0 15px 35px rgba(0, 0, 0, 0.3);
+        }
+
+
+        @keyframes balloonFloat {
+
+            from {
+                margin-top: 0;
+            }
+
+            to {
+                margin-top: -12px;
+            }
+
+        }
+
+
+        /* =====================================================
+           EVENT MESSAGE
         ===================================================== */
 
         .event-box {
-
             position: fixed;
 
             top: 25px;
@@ -556,15 +629,18 @@
             z-index: 10000;
 
             box-shadow:
-                0 8px 25px rgba(0,0,0,0.2);
+                0 8px 25px rgba(0, 0, 0, 0.2);
 
             transition:
                 transform 0.4s;
+
+            text-align: center;
+
+            max-width: 90vw;
         }
 
 
         .event-box.show {
-
             transform:
                 translateX(-50%)
                 translateY(0);
@@ -576,7 +652,6 @@
         ===================================================== */
 
         .event-timer {
-
             margin-top: 10px;
 
             color: #ff6f91;
@@ -592,7 +667,6 @@
         ===================================================== */
 
         .reset-button {
-
             width: 100%;
 
             margin-top: 15px;
@@ -614,7 +688,6 @@
 
 
         .reset-button:hover {
-
             background: #ff9fb8;
         }
 
@@ -624,7 +697,6 @@
         ===================================================== */
 
         .small-text {
-
             text-align: center;
 
             color: #999;
@@ -636,19 +708,18 @@
 
 
         /* =====================================================
-           RESPONSIVE
+           MOBILE
         ===================================================== */
 
         @media (max-width: 1000px) {
 
             .game-layout {
-
-                grid-template-columns: 1fr 1fr;
+                grid-template-columns:
+                    1fr 1fr;
             }
 
 
             .click-area {
-
                 grid-column:
                     1 / -1;
 
@@ -661,26 +732,28 @@
         @media (max-width: 700px) {
 
             .game-layout {
-
-                grid-template-columns: 1fr;
+                grid-template-columns:
+                    1fr;
             }
 
 
             .click-area {
-
                 grid-column: auto;
             }
 
 
             h1 {
-
                 font-size: 42px;
             }
 
 
             .willemijn-image {
-
                 width: 300px;
+            }
+
+
+            .event-balloon {
+                top: 90px;
             }
 
         }
@@ -694,7 +767,20 @@
 
 
     <!-- =====================================================
-         RANDOM EVENT MESSAGE
+         RANDOM EVENT BALLOON
+    ===================================================== -->
+
+    <button
+        id="eventBalloon"
+        class="event-balloon"
+        aria-label="Random event"
+    >
+        🎈
+    </button>
+
+
+    <!-- =====================================================
+         EVENT MESSAGE
     ===================================================== -->
 
     <div
@@ -723,6 +809,7 @@
                 Willemijn Clicker
             </h1>
 
+
             <p class="subtitle">
                 How many Willemijnen can you collect? 🎉
             </p>
@@ -740,11 +827,13 @@
 
 
             <!-- =================================================
-                 LEFT PANEL - SCORE
+                 LEFT SIDE
             ================================================= -->
 
             <aside>
 
+
+                <!-- SCORE -->
 
                 <div class="panel score-panel">
 
@@ -765,6 +854,8 @@
                         Willemijnen
                     </div>
 
+
+                    <!-- STATS -->
 
                     <div class="stats">
 
@@ -794,11 +885,15 @@
                     </div>
 
 
+                    <!-- EVENT TIMER -->
+
                     <div
                         id="eventTimer"
                         class="event-timer"
                     ></div>
 
+
+                    <!-- RESET -->
 
                     <button
                         id="resetButton"
@@ -806,6 +901,7 @@
                     >
                         Reset Game
                     </button>
+
 
                 </div>
 
@@ -843,16 +939,20 @@
                 <div class="panel">
 
 
+                    <!-- CURRENT FORM -->
+
                     <div
                         id="formName"
                         class="form-name"
                     >
-                        Normal Willemijn
+                        🙂 Normal Willemijn
                     </div>
 
 
                     <br><br>
 
+
+                    <!-- CLICKABLE IMAGE -->
 
                     <button
                         id="willemijnButton"
@@ -888,7 +988,7 @@
 
 
             <!-- =================================================
-                 RIGHT PANEL - SHOP
+                 RIGHT SIDE - SHOP
             ================================================= -->
 
             <aside>
@@ -901,7 +1001,9 @@
                     </h2>
 
 
-                    <!-- CLICK POWER 2 -->
+                    <!-- =========================================
+                         BETTER CLICKING
+                    ========================================= -->
 
                     <div class="shop-item">
 
@@ -909,9 +1011,11 @@
                             ⚡ Better Clicking
                         </h3>
 
+
                         <p>
                             Increase your click power by +1.
                         </p>
+
 
                         <button
                             class="buy-button"
@@ -924,7 +1028,9 @@
 
 
 
-                    <!-- CLICK POWER 5 -->
+                    <!-- =========================================
+                         SUPER CLICKING
+                    ========================================= -->
 
                     <div class="shop-item">
 
@@ -932,9 +1038,11 @@
                             🚀 Super Clicking
                         </h3>
 
+
                         <p>
                             Increase your click power by +5.
                         </p>
+
 
                         <button
                             class="buy-button"
@@ -947,7 +1055,9 @@
 
 
 
-                    <!-- AUTO CLICKER -->
+                    <!-- =========================================
+                         WILLEMIJN BOT
+                    ========================================= -->
 
                     <div class="shop-item">
 
@@ -955,9 +1065,11 @@
                             🤖 Willemijn Bot
                         </h3>
 
+
                         <p>
                             Produces +1 Willemijn every second.
                         </p>
+
 
                         <button
                             class="buy-button"
@@ -970,7 +1082,9 @@
 
 
 
-                    <!-- SUPER AUTO CLICKER -->
+                    <!-- =========================================
+                         SUPER BOT
+                    ========================================= -->
 
                     <div class="shop-item">
 
@@ -978,9 +1092,11 @@
                             🚀 Super Bot
                         </h3>
 
+
                         <p>
                             Produces +5 Willemijnen every second.
                         </p>
+
 
                         <button
                             class="buy-button"
@@ -993,7 +1109,9 @@
 
 
 
-                    <!-- GOLDEN WILLEMIJN -->
+                    <!-- =========================================
+                         GOLDEN WILLEMIJN
+                    ========================================= -->
 
                     <div class="shop-item">
 
@@ -1001,9 +1119,11 @@
                             👑 Golden Willemijn
                         </h3>
 
+
                         <p>
                             Unlocks the Golden Willemijn form.
                         </p>
+
 
                         <button
                             class="buy-button"
@@ -1045,36 +1165,53 @@
 
         let score =
             Number(
-                localStorage.getItem("willemijnScore")
+                localStorage.getItem(
+                    "willemijnScore"
+                )
             ) || 0;
 
 
         let clickPower =
             Number(
-                localStorage.getItem("clickPower")
+                localStorage.getItem(
+                    "clickPower"
+                )
             ) || 1;
 
 
         let autoPower =
             Number(
-                localStorage.getItem("autoPower")
+                localStorage.getItem(
+                    "autoPower"
+                )
             ) || 0;
 
 
         let goldenUnlocked =
-            localStorage.getItem("goldenUnlocked") === "true";
+            localStorage.getItem(
+                "goldenUnlocked"
+            ) === "true";
 
 
         let totalClicks =
             Number(
-                localStorage.getItem("totalClicks")
+                localStorage.getItem(
+                    "totalClicks"
+                )
             ) || 0;
 
 
+        /* =====================================================
+           RANDOM EVENT VARIABLES
+        ===================================================== */
+
         let eventMultiplier = 1;
 
-
         let eventSeconds = 0;
+
+        let balloonActive = false;
+
+        let balloonTimeout = null;
 
 
 
@@ -1083,36 +1220,57 @@
         ===================================================== */
 
         const counter =
-            document.getElementById("counter");
+            document.getElementById(
+                "counter"
+            );
 
 
         const clickPowerDisplay =
-            document.getElementById("clickPower");
+            document.getElementById(
+                "clickPower"
+            );
 
 
         const autoPowerDisplay =
-            document.getElementById("autoPower");
+            document.getElementById(
+                "autoPower"
+            );
 
 
         const willemijnButton =
-            document.getElementById("willemijnButton");
+            document.getElementById(
+                "willemijnButton"
+            );
 
 
         const willemijnImage =
-            document.getElementById("willemijnImage");
+            document.getElementById(
+                "willemijnImage"
+            );
 
 
         const formName =
-            document.getElementById("formName");
+            document.getElementById(
+                "formName"
+            );
+
+
+        const eventBalloon =
+            document.getElementById(
+                "eventBalloon"
+            );
 
 
         const eventBox =
-            document.getElementById("eventBox");
+            document.getElementById(
+                "eventBox"
+            );
 
 
         const eventTimer =
-            document.getElementById("eventTimer");
-
+            document.getElementById(
+                "eventTimer"
+            );
 
 
         /* =====================================================
@@ -1163,9 +1321,8 @@
         const achievementData = [
 
             {
-                id: "first",
-
-                title: "🎉 First Willemijn",
+                title:
+                    "🎉 First Willemijn",
 
                 description:
                     "Collect your first Willemijn.",
@@ -1176,9 +1333,8 @@
 
 
             {
-                id: "hundred",
-
-                title: "🔥 Getting Started",
+                title:
+                    "🔥 Getting Started",
 
                 description:
                     "Reach 100 Willemijnen.",
@@ -1189,9 +1345,8 @@
 
 
             {
-                id: "thousand",
-
-                title: "🚀 Willemijn Addict",
+                title:
+                    "🚀 Willemijn Addict",
 
                 description:
                     "Reach 1,000 Willemijnen.",
@@ -1202,9 +1357,8 @@
 
 
             {
-                id: "tenthousand",
-
-                title: "👑 Willemijn Master",
+                title:
+                    "👑 Willemijn Master",
 
                 description:
                     "Reach 10,000 Willemijnen.",
@@ -1215,9 +1369,8 @@
 
 
             {
-                id: "clicks",
-
-                title: "🖱️ Click Machine",
+                title:
+                    "🖱️ Click Machine",
 
                 description:
                     "Click Willemijn 500 times.",
@@ -1228,9 +1381,8 @@
 
 
             {
-                id: "bot",
-
-                title: "🤖 Automation",
+                title:
+                    "🤖 Automation",
 
                 description:
                     "Buy your first Willemijn Bot.",
@@ -1391,10 +1543,12 @@
                     "form-rainbow"
                 );
 
+
                 formName.textContent =
                     "🌈 Rainbow Willemijn";
 
             }
+
 
             else if (
                 score >= 10000 ||
@@ -1405,10 +1559,12 @@
                     "form-golden"
                 );
 
+
                 formName.textContent =
                     "👑 Golden Willemijn";
 
             }
+
 
             else if (score >= 1000) {
 
@@ -1416,10 +1572,12 @@
                     "form-epic"
                 );
 
+
                 formName.textContent =
                     "🔥 Epic Willemijn";
 
             }
+
 
             else if (score >= 100) {
 
@@ -1427,16 +1585,19 @@
                     "form-happy"
                 );
 
+
                 formName.textContent =
                     "😄 Happy Willemijn";
 
             }
+
 
             else {
 
                 willemijnImage.classList.add(
                     "form-normal"
                 );
+
 
                 formName.textContent =
                     "🙂 Normal Willemijn";
@@ -1489,10 +1650,16 @@
            +1 CLICK EFFECT
         ===================================================== */
 
-        function showPlusOne(x, y, amount) {
+        function showPlusOne(
+            x,
+            y,
+            amount
+        ) {
 
             const plusOne =
-                document.createElement("div");
+                document.createElement(
+                    "div"
+                );
 
 
             plusOne.className =
@@ -1517,7 +1684,11 @@
 
 
             setTimeout(
-                () => plusOne.remove(),
+                function() {
+
+                    plusOne.remove();
+
+                },
                 800
             );
 
@@ -1559,7 +1730,7 @@
 
 
         /* =====================================================
-           CLICK UPGRADE
+           BETTER CLICKING
         ===================================================== */
 
         clickUpgradeButton.addEventListener(
@@ -1582,7 +1753,7 @@
 
 
         /* =====================================================
-           SUPER CLICK
+           SUPER CLICKING
         ===================================================== */
 
         superClickButton.addEventListener(
@@ -1605,7 +1776,7 @@
 
 
         /* =====================================================
-           AUTO CLICKER
+           WILLEMIJN BOT
         ===================================================== */
 
         autoClickButton.addEventListener(
@@ -1628,7 +1799,7 @@
 
 
         /* =====================================================
-           SUPER AUTO CLICKER
+           SUPER BOT
         ===================================================== */
 
         superAutoButton.addEventListener(
@@ -1677,29 +1848,121 @@
 
 
         /* =====================================================
-           RANDOM EVENTS
+           SHOW RANDOM EVENT BALLOON
         ===================================================== */
 
-        function startRandomEvent() {
+        function spawnEventBalloon() {
 
-            if (eventSeconds > 0) {
+            if (
+                balloonActive ||
+                eventSeconds > 0
+            ) {
                 return;
             }
 
+
+            balloonActive = true;
+
+
+            eventBalloon.classList.add(
+                "show"
+            );
+
+
+            /*
+               The balloon stays visible
+               for 8 seconds.
+            */
+
+            balloonTimeout =
+                setTimeout(
+                    function() {
+
+                        hideEventBalloon();
+
+                    },
+                    8000
+                );
+
+        }
+
+
+
+        /* =====================================================
+           HIDE RANDOM EVENT BALLOON
+        ===================================================== */
+
+        function hideEventBalloon() {
+
+            balloonActive = false;
+
+
+            eventBalloon.classList.remove(
+                "show"
+            );
+
+
+            if (balloonTimeout) {
+
+                clearTimeout(
+                    balloonTimeout
+                );
+
+                balloonTimeout = null;
+
+            }
+
+        }
+
+
+
+        /* =====================================================
+           CLICK THE EVENT BALLOON
+        ===================================================== */
+
+        eventBalloon.addEventListener(
+            "click",
+            function() {
+
+                if (!balloonActive) {
+                    return;
+                }
+
+
+                hideEventBalloon();
+
+
+                activateRandomEvent();
+
+            }
+        );
+
+
+
+        /* =====================================================
+           ACTIVATE RANDOM EVENT
+        ===================================================== */
+
+        function activateRandomEvent() {
 
             const random =
                 Math.random();
 
 
+            /* ================================================
+               EVENT 1
+               3X CLICKS FOR 15 SECONDS
+            ================================================= */
+
             if (random < 0.4) {
 
-                eventMultiplier = 2;
+                eventMultiplier = 3;
 
-                eventSeconds = 10;
+                eventSeconds = 15;
 
 
                 eventBox.textContent =
-                    "🎉 WILLEMIJN PARTY! 2X CLICKS FOR 10 SECONDS!";
+                    "🎉 WILLEMIJN PARTY! 3X CLICKS FOR 15 SECONDS!";
 
 
                 eventBox.classList.add(
@@ -1707,16 +1970,22 @@
                 );
 
             }
+
+
+            /* ================================================
+               EVENT 2
+               10X CLICKS FOR 8 SECONDS
+            ================================================= */
 
             else if (random < 0.7) {
 
-                eventMultiplier = 5;
+                eventMultiplier = 10;
 
-                eventSeconds = 5;
+                eventSeconds = 8;
 
 
                 eventBox.textContent =
-                    "🍀 LUCKY WILLEMIJN! 5X CLICKS!";
+                    "🔥 MEGA WILLEMIJN! 10X CLICKS FOR 8 SECONDS!";
 
 
                 eventBox.classList.add(
@@ -1725,16 +1994,23 @@
 
             }
 
+
+            /* ================================================
+               EVENT 3
+               +500 WILLEMIJN
+            ================================================= */
+
             else {
 
-                const bonus = 100;
+                const bonus =
+                    500;
 
 
                 score += bonus;
 
 
                 eventBox.textContent =
-                    "🎁 SURPRISE! +100 WILLEMIJN!";
+                    "🎁 HUGE BONUS! +500 WILLEMIJN!";
 
 
                 eventBox.classList.add(
@@ -1742,15 +2018,18 @@
                 );
 
 
+                updateScreen();
+
+
                 setTimeout(
-                    () => {
+                    function() {
 
                         eventBox.classList.remove(
                             "show"
                         );
 
                     },
-                    2500
+                    3000
                 );
 
             }
@@ -1770,6 +2049,7 @@
 
                     eventSeconds -= 1;
 
+
                     eventTimer.textContent =
                         "⚡ Event active: "
                         + eventSeconds
@@ -1777,7 +2057,11 @@
 
                 }
 
+
                 else {
+
+                    eventTimer.textContent = "";
+
 
                     if (
                         eventMultiplier !== 1
@@ -1785,8 +2069,6 @@
 
                         eventMultiplier = 1;
 
-                        eventTimer.textContent =
-                            "";
 
                         eventBox.classList.remove(
                             "show"
@@ -1803,23 +2085,31 @@
 
 
         /* =====================================================
-           RANDOM EVENT EVERY 20-40 SECONDS
+           SCHEDULE NEXT EVENT BALLOON
         ===================================================== */
 
-        function scheduleRandomEvent() {
+        function scheduleEventBalloon() {
+
+            /*
+               Minimum:
+               2 minutes
+
+               Maximum:
+               5 minutes
+            */
 
             const delay =
-                Math.random() *
-                20000
-                + 20000;
+                Math.random()
+                * 180000
+                + 120000;
 
 
             setTimeout(
                 function() {
 
-                    startRandomEvent();
+                    spawnEventBalloon();
 
-                    scheduleRandomEvent();
+                    scheduleEventBalloon();
 
                 },
                 delay
@@ -1828,12 +2118,14 @@
         }
 
 
-        scheduleRandomEvent();
+        /* Start the random event system */
+
+        scheduleEventBalloon();
 
 
 
         /* =====================================================
-           AUTO CLICKER
+           AUTO CLICKERS
         ===================================================== */
 
         setInterval(
@@ -1882,6 +2174,14 @@
                     eventMultiplier = 1;
 
                     eventSeconds = 0;
+
+
+                    hideEventBalloon();
+
+
+                    eventBox.classList.remove(
+                        "show"
+                    );
 
 
                     saveGame();
