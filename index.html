@@ -3,10 +3,9 @@
 <head>
 
     <meta charset="UTF-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Willemijn Clicker</title>
+    <title>Willemijn Clicker 2.0</title>
 
 
     <style>
@@ -25,38 +24,34 @@
         body {
             font-family: Arial, Helvetica, sans-serif;
 
-            background: linear-gradient(
-                135deg,
-                #ffe9f2,
-                #fff4c7
-            );
+            background:
+                linear-gradient(
+                    135deg,
+                    #ffe6f0,
+                    #fff3c4,
+                    #dff7ff
+                );
 
             color: #333;
 
             min-height: 100vh;
 
-            display: flex;
-
-            justify-content: center;
-
-            align-items: center;
-
-            text-align: center;
-
-            overflow: hidden;
+            overflow-x: hidden;
         }
 
 
         /* =====================================================
-           MAIN GAME CONTAINER
+           MAIN LAYOUT
         ===================================================== */
 
-        .game {
+        .page {
             width: 100%;
 
-            max-width: 700px;
+            max-width: 1250px;
 
-            padding: 30px;
+            margin: auto;
+
+            padding: 25px;
         }
 
 
@@ -64,24 +59,77 @@
            TITLE
         ===================================================== */
 
+        header {
+            text-align: center;
+
+            margin-bottom: 25px;
+        }
+
+
         h1 {
             font-size: 58px;
 
             color: #ff6f91;
 
-            margin-bottom: 8px;
-
             text-shadow:
                 3px 3px 0 white;
+
+            margin-bottom: 5px;
         }
 
 
         .subtitle {
-            font-size: 18px;
-
             color: #666;
 
-            margin-bottom: 25px;
+            font-size: 18px;
+        }
+
+
+        /* =====================================================
+           GAME GRID
+        ===================================================== */
+
+        .game-layout {
+
+            display: grid;
+
+            grid-template-columns:
+                1fr 1.6fr 1fr;
+
+            gap: 20px;
+
+            align-items: start;
+        }
+
+
+        /* =====================================================
+           PANELS
+        ===================================================== */
+
+        .panel {
+
+            background: rgba(255, 255, 255, 0.88);
+
+            border-radius: 22px;
+
+            padding: 20px;
+
+            box-shadow:
+                0 10px 30px rgba(0, 0, 0, 0.08);
+
+            backdrop-filter: blur(5px);
+        }
+
+
+        .panel h2 {
+
+            color: #ff6f91;
+
+            font-size: 25px;
+
+            margin-bottom: 15px;
+
+            text-align: center;
         }
 
 
@@ -89,47 +137,84 @@
            SCORE
         ===================================================== */
 
-        .counter-box {
-            background: white;
+        .score-panel {
 
-            padding: 20px;
+            text-align: center;
 
-            border-radius: 20px;
-
-            width: 100%;
-
-            max-width: 400px;
-
-            margin: 0 auto 25px;
-
-            box-shadow:
-                0 8px 25px rgba(0, 0, 0, 0.08);
+            margin-bottom: 20px;
         }
 
 
-        .counter {
-            font-size: 60px;
+        .score {
+
+            font-size: 58px;
 
             font-weight: bold;
+
+            color: #ff6f91;
+
+            line-height: 1;
+        }
+
+
+        .score-label {
+
+            color: #777;
+
+            margin-top: 8px;
+
+            font-size: 17px;
+        }
+
+
+        .stats {
+
+            margin-top: 18px;
+
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            gap: 10px;
+        }
+
+
+        .stat {
+
+            background: #fff3f7;
+
+            border-radius: 12px;
+
+            padding: 10px;
+
+            font-size: 14px;
+        }
+
+
+        .stat strong {
+
+            display: block;
+
+            font-size: 20px;
 
             color: #ff6f91;
         }
 
 
-        .counter-text {
-            font-size: 18px;
+        /* =====================================================
+           WILLEMIJN
+        ===================================================== */
 
-            color: #777;
+        .click-area {
 
-            margin-top: 3px;
+            text-align: center;
+
+            position: relative;
         }
 
 
-        /* =====================================================
-           WILLEMIJN IMAGE
-        ===================================================== */
-
         .willemijn-button {
+
             border: none;
 
             background: transparent;
@@ -138,54 +223,147 @@
 
             cursor: pointer;
 
-            border-radius: 25px;
+            border-radius: 30px;
 
-            transition: transform 0.15s;
+            transition: transform 0.12s;
         }
 
 
         .willemijn-button:hover {
+
             transform: scale(1.04);
         }
 
 
         .willemijn-button:active {
-            transform: scale(0.92);
+
+            transform: scale(0.91);
         }
 
 
         .willemijn-image {
+
             display: block;
 
-            width: 350px;
+            width: 380px;
 
-            max-width: 85vw;
+            max-width: 80vw;
 
-            max-height: 50vh;
+            max-height: 55vh;
 
             object-fit: contain;
 
-            border-radius: 25px;
+            border-radius: 30px;
 
             box-shadow:
-                0 12px 30px rgba(0, 0, 0, 0.15);
+                0 15px 35px rgba(0, 0, 0, 0.17);
+
+            transition:
+                filter 0.5s,
+                transform 0.5s;
         }
 
 
         /* =====================================================
-           +1 ANIMATION
+           WILLEMIJN FORMS
+        ===================================================== */
+
+        .form-normal {
+            filter: none;
+        }
+
+
+        .form-happy {
+            filter:
+                saturate(1.3)
+                brightness(1.08);
+        }
+
+
+        .form-epic {
+            filter:
+                saturate(1.7)
+                brightness(1.15)
+                drop-shadow(0 0 10px #ffd166);
+        }
+
+
+        .form-golden {
+            filter:
+                sepia(0.7)
+                saturate(2)
+                brightness(1.15)
+                drop-shadow(0 0 18px gold);
+        }
+
+
+        .form-rainbow {
+            animation:
+                rainbowGlow 2s linear infinite;
+        }
+
+
+        @keyframes rainbowGlow {
+
+            0% {
+                filter:
+                    hue-rotate(0deg)
+                    saturate(1.7);
+            }
+
+            50% {
+                filter:
+                    hue-rotate(180deg)
+                    saturate(2);
+            }
+
+            100% {
+                filter:
+                    hue-rotate(360deg)
+                    saturate(1.7);
+            }
+        }
+
+
+        /* =====================================================
+           CURRENT FORM
+        ===================================================== */
+
+        .form-name {
+
+            display: inline-block;
+
+            margin-top: 15px;
+
+            background: #ff6f91;
+
+            color: white;
+
+            padding: 7px 16px;
+
+            border-radius: 50px;
+
+            font-weight: bold;
+        }
+
+
+        /* =====================================================
+           +1 CLICK EFFECT
         ===================================================== */
 
         .plus-one {
+
             position: fixed;
 
             pointer-events: none;
 
-            font-size: 28px;
+            font-size: 26px;
 
             font-weight: bold;
 
             color: #ff4f81;
+
+            z-index: 9999;
 
             animation:
                 floatUp 0.8s ease-out forwards;
@@ -195,6 +373,7 @@
         @keyframes floatUp {
 
             0% {
+
                 opacity: 1;
 
                 transform:
@@ -202,48 +381,78 @@
                     scale(1);
             }
 
+
             100% {
+
                 opacity: 0;
 
                 transform:
                     translateY(-90px)
-                    scale(1.3);
+                    scale(1.4);
             }
-
         }
 
 
         /* =====================================================
-           INSTRUCTION
+           SHOP
         ===================================================== */
 
-        .instruction {
-            font-size: 17px;
+        .shop-item {
+
+            background: #fff7fa;
+
+            border-radius: 15px;
+
+            padding: 14px;
+
+            margin-bottom: 12px;
+
+            border:
+                2px solid transparent;
+
+            transition: 0.2s;
+        }
+
+
+        .shop-item:hover {
+
+            border-color: #ffb3c6;
+
+            transform: translateY(-2px);
+        }
+
+
+        .shop-item h3 {
+
+            color: #ff6f91;
+
+            margin-bottom: 5px;
+        }
+
+
+        .shop-item p {
+
+            font-size: 14px;
 
             color: #666;
 
-            margin-top: 20px;
+            margin-bottom: 8px;
         }
 
 
-        /* =====================================================
-           RESET BUTTON
-        ===================================================== */
+        .buy-button {
 
-        .reset-button {
-            margin-top: 20px;
-
-            padding: 11px 22px;
+            width: 100%;
 
             border: none;
 
-            border-radius: 12px;
+            padding: 9px;
+
+            border-radius: 10px;
 
             background: #ffd166;
 
             color: #333;
-
-            font-size: 15px;
 
             font-weight: bold;
 
@@ -253,49 +462,225 @@
         }
 
 
-        .reset-button:hover {
+        .buy-button:hover:not(:disabled) {
+
             background: #ffc44d;
 
-            transform: translateY(-2px);
+            transform: scale(1.02);
+        }
+
+
+        .buy-button:disabled {
+
+            background: #ddd;
+
+            color: #999;
+
+            cursor: not-allowed;
         }
 
 
         /* =====================================================
-           SAVE INFORMATION
+           ACHIEVEMENTS
         ===================================================== */
 
-        .save-info {
-            margin-top: 15px;
+        .achievement {
+
+            background: #f5f5f5;
+
+            padding: 12px;
+
+            border-radius: 12px;
+
+            margin-bottom: 10px;
+
+            opacity: 0.45;
+
+            transition: 0.3s;
+        }
+
+
+        .achievement.unlocked {
+
+            opacity: 1;
+
+            background: #fff0b8;
+
+            border:
+                2px solid #ffd166;
+        }
+
+
+        .achievement-title {
+
+            font-weight: bold;
+
+            margin-bottom: 3px;
+        }
+
+
+        .achievement-description {
 
             font-size: 13px;
 
-            color: #999;
+            color: #666;
         }
 
 
         /* =====================================================
-           MOBILE VERSION
+           RANDOM EVENTS
         ===================================================== */
 
-        @media (max-width: 600px) {
+        .event-box {
+
+            position: fixed;
+
+            top: 25px;
+
+            left: 50%;
+
+            transform:
+                translateX(-50%)
+                translateY(-120px);
+
+            background: #ff6f91;
+
+            color: white;
+
+            padding: 17px 25px;
+
+            border-radius: 50px;
+
+            font-weight: bold;
+
+            z-index: 10000;
+
+            box-shadow:
+                0 8px 25px rgba(0,0,0,0.2);
+
+            transition:
+                transform 0.4s;
+        }
+
+
+        .event-box.show {
+
+            transform:
+                translateX(-50%)
+                translateY(0);
+        }
+
+
+        /* =====================================================
+           EVENT TIMER
+        ===================================================== */
+
+        .event-timer {
+
+            margin-top: 10px;
+
+            color: #ff6f91;
+
+            font-weight: bold;
+
+            min-height: 20px;
+        }
+
+
+        /* =====================================================
+           RESET
+        ===================================================== */
+
+        .reset-button {
+
+            width: 100%;
+
+            margin-top: 15px;
+
+            padding: 10px;
+
+            border: none;
+
+            border-radius: 10px;
+
+            background: #ffb3c6;
+
+            color: #333;
+
+            font-weight: bold;
+
+            cursor: pointer;
+        }
+
+
+        .reset-button:hover {
+
+            background: #ff9fb8;
+        }
+
+
+        /* =====================================================
+           SMALL TEXT
+        ===================================================== */
+
+        .small-text {
+
+            text-align: center;
+
+            color: #999;
+
+            font-size: 12px;
+
+            margin-top: 20px;
+        }
+
+
+        /* =====================================================
+           RESPONSIVE
+        ===================================================== */
+
+        @media (max-width: 1000px) {
+
+            .game-layout {
+
+                grid-template-columns: 1fr 1fr;
+            }
+
+
+            .click-area {
+
+                grid-column:
+                    1 / -1;
+
+                grid-row: 1;
+            }
+
+        }
+
+
+        @media (max-width: 700px) {
+
+            .game-layout {
+
+                grid-template-columns: 1fr;
+            }
+
+
+            .click-area {
+
+                grid-column: auto;
+            }
+
 
             h1 {
+
                 font-size: 42px;
             }
 
 
-            .subtitle {
-                font-size: 16px;
-            }
-
-
-            .counter {
-                font-size: 45px;
-            }
-
-
             .willemijn-image {
-                width: 290px;
+
+                width: 300px;
             }
 
         }
@@ -309,89 +694,341 @@
 
 
     <!-- =====================================================
-         MAIN GAME
+         RANDOM EVENT MESSAGE
     ===================================================== -->
 
-    <main class="game">
+    <div
+        id="eventBox"
+        class="event-box"
+    >
+        🎉 Event!
+    </div>
 
 
-        <!-- TITLE -->
 
-        <h1>
-            Willemijn Clicker
-        </h1>
+    <!-- =====================================================
+         MAIN PAGE
+    ===================================================== -->
 
-
-        <p class="subtitle">
-            Click Willemijn and collect as many Willemijnen as possible! 🎉
-        </p>
+    <div class="page">
 
 
         <!-- =================================================
-             SCORE
+             HEADER
         ================================================= -->
 
-        <div class="counter-box">
+        <header>
 
-            <div
-                id="counter"
-                class="counter"
-            >
-                0
-            </div>
+            <h1>
+                Willemijn Clicker
+            </h1>
+
+            <p class="subtitle">
+                How many Willemijnen can you collect? 🎉
+            </p>
+
+        </header>
 
 
-            <div class="counter-text">
-                Willemijnen
-            </div>
+
+        <!-- =================================================
+             GAME LAYOUT
+        ================================================= -->
+
+        <div class="game-layout">
+
+
+
+            <!-- =================================================
+                 LEFT PANEL - SCORE
+            ================================================= -->
+
+            <aside>
+
+
+                <div class="panel score-panel">
+
+                    <h2>
+                        🏆 Your Score
+                    </h2>
+
+
+                    <div
+                        id="counter"
+                        class="score"
+                    >
+                        0
+                    </div>
+
+
+                    <div class="score-label">
+                        Willemijnen
+                    </div>
+
+
+                    <div class="stats">
+
+
+                        <div class="stat">
+
+                            <strong id="clickPower">
+                                +1
+                            </strong>
+
+                            Per Click
+
+                        </div>
+
+
+                        <div class="stat">
+
+                            <strong id="autoPower">
+                                0
+                            </strong>
+
+                            Per Second
+
+                        </div>
+
+
+                    </div>
+
+
+                    <div
+                        id="eventTimer"
+                        class="event-timer"
+                    ></div>
+
+
+                    <button
+                        id="resetButton"
+                        class="reset-button"
+                    >
+                        Reset Game
+                    </button>
+
+                </div>
+
+
+
+                <!-- =================================================
+                     ACHIEVEMENTS
+                ================================================= -->
+
+                <div class="panel">
+
+                    <h2>
+                        🏆 Achievements
+                    </h2>
+
+
+                    <div
+                        id="achievements"
+                    ></div>
+
+                </div>
+
+
+            </aside>
+
+
+
+            <!-- =================================================
+                 MIDDLE - WILLEMIJN
+            ================================================= -->
+
+            <main class="click-area">
+
+
+                <div class="panel">
+
+
+                    <div
+                        id="formName"
+                        class="form-name"
+                    >
+                        Normal Willemijn
+                    </div>
+
+
+                    <br><br>
+
+
+                    <button
+                        id="willemijnButton"
+                        class="willemijn-button"
+                        aria-label="Click Willemijn"
+                    >
+
+                        <img
+                            src="./images%20%286%29.jpeg"
+                            alt="Willemijn"
+                            id="willemijnImage"
+                            class="willemijn-image form-normal"
+                        >
+
+                    </button>
+
+
+                    <p
+                        style="
+                            margin-top: 20px;
+                            color: #666;
+                        "
+                    >
+                        👆 CLICK WILLEMIJN!
+                    </p>
+
+
+                </div>
+
+
+            </main>
+
+
+
+            <!-- =================================================
+                 RIGHT PANEL - SHOP
+            ================================================= -->
+
+            <aside>
+
+
+                <div class="panel">
+
+                    <h2>
+                        🛒 Willemijn Shop
+                    </h2>
+
+
+                    <!-- CLICK POWER 2 -->
+
+                    <div class="shop-item">
+
+                        <h3>
+                            ⚡ Better Clicking
+                        </h3>
+
+                        <p>
+                            Increase your click power by +1.
+                        </p>
+
+                        <button
+                            class="buy-button"
+                            id="clickUpgradeButton"
+                        >
+                            Buy — 50 Willemijnen
+                        </button>
+
+                    </div>
+
+
+
+                    <!-- CLICK POWER 5 -->
+
+                    <div class="shop-item">
+
+                        <h3>
+                            🚀 Super Clicking
+                        </h3>
+
+                        <p>
+                            Increase your click power by +5.
+                        </p>
+
+                        <button
+                            class="buy-button"
+                            id="superClickButton"
+                        >
+                            Buy — 250 Willemijnen
+                        </button>
+
+                    </div>
+
+
+
+                    <!-- AUTO CLICKER -->
+
+                    <div class="shop-item">
+
+                        <h3>
+                            🤖 Willemijn Bot
+                        </h3>
+
+                        <p>
+                            Produces +1 Willemijn every second.
+                        </p>
+
+                        <button
+                            class="buy-button"
+                            id="autoClickButton"
+                        >
+                            Buy — 500 Willemijnen
+                        </button>
+
+                    </div>
+
+
+
+                    <!-- SUPER AUTO CLICKER -->
+
+                    <div class="shop-item">
+
+                        <h3>
+                            🚀 Super Bot
+                        </h3>
+
+                        <p>
+                            Produces +5 Willemijnen every second.
+                        </p>
+
+                        <button
+                            class="buy-button"
+                            id="superAutoButton"
+                        >
+                            Buy — 2500 Willemijnen
+                        </button>
+
+                    </div>
+
+
+
+                    <!-- GOLDEN WILLEMIJN -->
+
+                    <div class="shop-item">
+
+                        <h3>
+                            👑 Golden Willemijn
+                        </h3>
+
+                        <p>
+                            Unlocks the Golden Willemijn form.
+                        </p>
+
+                        <button
+                            class="buy-button"
+                            id="goldenButton"
+                        >
+                            Buy — 5000 Willemijnen
+                        </button>
+
+                    </div>
+
+
+                </div>
+
+
+                <p class="small-text">
+                    Your game saves automatically 💾
+                </p>
+
+
+            </aside>
+
 
         </div>
 
-
-        <!-- =================================================
-             CLICKABLE WILLEMIJN
-        ================================================= -->
-
-        <button
-            id="willemijnButton"
-            class="willemijn-button"
-            aria-label="Click Willemijn"
-        >
-
-            <img
-                src="./images%20%286%29.jpeg"
-                alt="Willemijn"
-                class="willemijn-image"
-            >
-
-        </button>
-
-
-        <!-- INSTRUCTION -->
-
-        <p class="instruction">
-            👆 Click on Willemijn!
-        </p>
-
-
-        <!-- =================================================
-             RESET
-        ================================================= -->
-
-        <button
-            id="resetButton"
-            class="reset-button"
-        >
-            Reset score
-        </button>
-
-
-        <p class="save-info">
-            Your score is automatically saved.
-        </p>
-
-
-    </main>
+    </div>
 
 
 
@@ -401,14 +1038,44 @@
 
     <script>
 
+
         /* =====================================================
-           LOAD SCORE
+           GAME VARIABLES
         ===================================================== */
 
         let score =
             Number(
                 localStorage.getItem("willemijnScore")
             ) || 0;
+
+
+        let clickPower =
+            Number(
+                localStorage.getItem("clickPower")
+            ) || 1;
+
+
+        let autoPower =
+            Number(
+                localStorage.getItem("autoPower")
+            ) || 0;
+
+
+        let goldenUnlocked =
+            localStorage.getItem("goldenUnlocked") === "true";
+
+
+        let totalClicks =
+            Number(
+                localStorage.getItem("totalClicks")
+            ) || 0;
+
+
+        let eventMultiplier = 1;
+
+
+        let eventSeconds = 0;
+
 
 
         /* =====================================================
@@ -418,34 +1085,411 @@
         const counter =
             document.getElementById("counter");
 
+
+        const clickPowerDisplay =
+            document.getElementById("clickPower");
+
+
+        const autoPowerDisplay =
+            document.getElementById("autoPower");
+
+
         const willemijnButton =
             document.getElementById("willemijnButton");
 
-        const resetButton =
-            document.getElementById("resetButton");
+
+        const willemijnImage =
+            document.getElementById("willemijnImage");
+
+
+        const formName =
+            document.getElementById("formName");
+
+
+        const eventBox =
+            document.getElementById("eventBox");
+
+
+        const eventTimer =
+            document.getElementById("eventTimer");
+
 
 
         /* =====================================================
-           UPDATE SCORE
+           SHOP BUTTONS
         ===================================================== */
 
-        function updateCounter() {
+        const clickUpgradeButton =
+            document.getElementById(
+                "clickUpgradeButton"
+            );
 
-            counter.textContent = score;
+
+        const superClickButton =
+            document.getElementById(
+                "superClickButton"
+            );
+
+
+        const autoClickButton =
+            document.getElementById(
+                "autoClickButton"
+            );
+
+
+        const superAutoButton =
+            document.getElementById(
+                "superAutoButton"
+            );
+
+
+        const goldenButton =
+            document.getElementById(
+                "goldenButton"
+            );
+
+
+        const resetButton =
+            document.getElementById(
+                "resetButton"
+            );
+
+
+
+        /* =====================================================
+           ACHIEVEMENTS
+        ===================================================== */
+
+        const achievementData = [
+
+            {
+                id: "first",
+
+                title: "🎉 First Willemijn",
+
+                description:
+                    "Collect your first Willemijn.",
+
+                requirement:
+                    () => score >= 1
+            },
+
+
+            {
+                id: "hundred",
+
+                title: "🔥 Getting Started",
+
+                description:
+                    "Reach 100 Willemijnen.",
+
+                requirement:
+                    () => score >= 100
+            },
+
+
+            {
+                id: "thousand",
+
+                title: "🚀 Willemijn Addict",
+
+                description:
+                    "Reach 1,000 Willemijnen.",
+
+                requirement:
+                    () => score >= 1000
+            },
+
+
+            {
+                id: "tenthousand",
+
+                title: "👑 Willemijn Master",
+
+                description:
+                    "Reach 10,000 Willemijnen.",
+
+                requirement:
+                    () => score >= 10000
+            },
+
+
+            {
+                id: "clicks",
+
+                title: "🖱️ Click Machine",
+
+                description:
+                    "Click Willemijn 500 times.",
+
+                requirement:
+                    () => totalClicks >= 500
+            },
+
+
+            {
+                id: "bot",
+
+                title: "🤖 Automation",
+
+                description:
+                    "Buy your first Willemijn Bot.",
+
+                requirement:
+                    () => autoPower >= 1
+            }
+
+        ];
+
+
+
+        /* =====================================================
+           DRAW ACHIEVEMENTS
+        ===================================================== */
+
+        function drawAchievements() {
+
+            const container =
+                document.getElementById(
+                    "achievements"
+                );
+
+
+            container.innerHTML = "";
+
+
+            achievementData.forEach(
+                achievement => {
+
+                    const unlocked =
+                        achievement.requirement();
+
+
+                    const div =
+                        document.createElement(
+                            "div"
+                        );
+
+
+                    div.className =
+                        "achievement";
+
+
+                    if (unlocked) {
+
+                        div.classList.add(
+                            "unlocked"
+                        );
+
+                    }
+
+
+                    div.innerHTML = `
+
+                        <div class="achievement-title">
+                            ${achievement.title}
+                        </div>
+
+                        <div class="achievement-description">
+                            ${achievement.description}
+                        </div>
+
+                    `;
+
+
+                    container.appendChild(div);
+
+                }
+            );
+
+        }
+
+
+
+        /* =====================================================
+           SAVE GAME
+        ===================================================== */
+
+        function saveGame() {
 
             localStorage.setItem(
                 "willemijnScore",
                 score
             );
 
+
+            localStorage.setItem(
+                "clickPower",
+                clickPower
+            );
+
+
+            localStorage.setItem(
+                "autoPower",
+                autoPower
+            );
+
+
+            localStorage.setItem(
+                "goldenUnlocked",
+                goldenUnlocked
+            );
+
+
+            localStorage.setItem(
+                "totalClicks",
+                totalClicks
+            );
+
         }
 
 
+
         /* =====================================================
-           SHOW +1 ANIMATION
+           UPDATE SCREEN
         ===================================================== */
 
-        function showPlusOne(x, y) {
+        function updateScreen() {
+
+            counter.textContent =
+                Math.floor(score);
+
+
+            clickPowerDisplay.textContent =
+                "+" + clickPower;
+
+
+            autoPowerDisplay.textContent =
+                autoPower;
+
+
+            updateWillemijnForm();
+
+            updateShopButtons();
+
+            drawAchievements();
+
+            saveGame();
+
+        }
+
+
+
+        /* =====================================================
+           WILLEMIJN FORMS
+        ===================================================== */
+
+        function updateWillemijnForm() {
+
+            willemijnImage.className =
+                "willemijn-image";
+
+
+            if (score >= 25000) {
+
+                willemijnImage.classList.add(
+                    "form-rainbow"
+                );
+
+                formName.textContent =
+                    "🌈 Rainbow Willemijn";
+
+            }
+
+            else if (
+                score >= 10000 ||
+                goldenUnlocked
+            ) {
+
+                willemijnImage.classList.add(
+                    "form-golden"
+                );
+
+                formName.textContent =
+                    "👑 Golden Willemijn";
+
+            }
+
+            else if (score >= 1000) {
+
+                willemijnImage.classList.add(
+                    "form-epic"
+                );
+
+                formName.textContent =
+                    "🔥 Epic Willemijn";
+
+            }
+
+            else if (score >= 100) {
+
+                willemijnImage.classList.add(
+                    "form-happy"
+                );
+
+                formName.textContent =
+                    "😄 Happy Willemijn";
+
+            }
+
+            else {
+
+                willemijnImage.classList.add(
+                    "form-normal"
+                );
+
+                formName.textContent =
+                    "🙂 Normal Willemijn";
+
+            }
+
+        }
+
+
+
+        /* =====================================================
+           SHOP BUTTON STATUS
+        ===================================================== */
+
+        function updateShopButtons() {
+
+            clickUpgradeButton.disabled =
+                score < 50;
+
+
+            superClickButton.disabled =
+                score < 250;
+
+
+            autoClickButton.disabled =
+                score < 500;
+
+
+            superAutoButton.disabled =
+                score < 2500;
+
+
+            goldenButton.disabled =
+                score < 5000 ||
+                goldenUnlocked;
+
+
+            if (goldenUnlocked) {
+
+                goldenButton.textContent =
+                    "✅ Golden Willemijn Unlocked";
+
+            }
+
+        }
+
+
+
+        /* =====================================================
+           +1 CLICK EFFECT
+        ===================================================== */
+
+        function showPlusOne(x, y, amount) {
 
             const plusOne =
                 document.createElement("div");
@@ -456,7 +1500,7 @@
 
 
             plusOne.textContent =
-                "+1 Willemijn";
+                "+" + amount;
 
 
             plusOne.style.left =
@@ -473,15 +1517,12 @@
 
 
             setTimeout(
-                function() {
-
-                    plusOne.remove();
-
-                },
+                () => plusOne.remove(),
                 800
             );
 
         }
+
 
 
         /* =====================================================
@@ -492,41 +1533,373 @@
             "click",
             function(event) {
 
-                score += 1;
+                const amount =
+                    clickPower *
+                    eventMultiplier;
 
-                updateCounter();
+
+                score += amount;
+
+
+                totalClicks += 1;
 
 
                 showPlusOne(
                     event.clientX,
-                    event.clientY
+                    event.clientY,
+                    amount
                 );
+
+
+                updateScreen();
 
             }
         );
 
 
+
         /* =====================================================
-           RESET SCORE
+           CLICK UPGRADE
+        ===================================================== */
+
+        clickUpgradeButton.addEventListener(
+            "click",
+            function() {
+
+                if (score >= 50) {
+
+                    score -= 50;
+
+                    clickPower += 1;
+
+                    updateScreen();
+
+                }
+
+            }
+        );
+
+
+
+        /* =====================================================
+           SUPER CLICK
+        ===================================================== */
+
+        superClickButton.addEventListener(
+            "click",
+            function() {
+
+                if (score >= 250) {
+
+                    score -= 250;
+
+                    clickPower += 5;
+
+                    updateScreen();
+
+                }
+
+            }
+        );
+
+
+
+        /* =====================================================
+           AUTO CLICKER
+        ===================================================== */
+
+        autoClickButton.addEventListener(
+            "click",
+            function() {
+
+                if (score >= 500) {
+
+                    score -= 500;
+
+                    autoPower += 1;
+
+                    updateScreen();
+
+                }
+
+            }
+        );
+
+
+
+        /* =====================================================
+           SUPER AUTO CLICKER
+        ===================================================== */
+
+        superAutoButton.addEventListener(
+            "click",
+            function() {
+
+                if (score >= 2500) {
+
+                    score -= 2500;
+
+                    autoPower += 5;
+
+                    updateScreen();
+
+                }
+
+            }
+        );
+
+
+
+        /* =====================================================
+           GOLDEN WILLEMIJN
+        ===================================================== */
+
+        goldenButton.addEventListener(
+            "click",
+            function() {
+
+                if (
+                    score >= 5000 &&
+                    !goldenUnlocked
+                ) {
+
+                    score -= 5000;
+
+                    goldenUnlocked = true;
+
+                    updateScreen();
+
+                }
+
+            }
+        );
+
+
+
+        /* =====================================================
+           RANDOM EVENTS
+        ===================================================== */
+
+        function startRandomEvent() {
+
+            if (eventSeconds > 0) {
+                return;
+            }
+
+
+            const random =
+                Math.random();
+
+
+            if (random < 0.4) {
+
+                eventMultiplier = 2;
+
+                eventSeconds = 10;
+
+
+                eventBox.textContent =
+                    "🎉 WILLEMIJN PARTY! 2X CLICKS FOR 10 SECONDS!";
+
+
+                eventBox.classList.add(
+                    "show"
+                );
+
+            }
+
+            else if (random < 0.7) {
+
+                eventMultiplier = 5;
+
+                eventSeconds = 5;
+
+
+                eventBox.textContent =
+                    "🍀 LUCKY WILLEMIJN! 5X CLICKS!";
+
+
+                eventBox.classList.add(
+                    "show"
+                );
+
+            }
+
+            else {
+
+                const bonus = 100;
+
+
+                score += bonus;
+
+
+                eventBox.textContent =
+                    "🎁 SURPRISE! +100 WILLEMIJN!";
+
+
+                eventBox.classList.add(
+                    "show"
+                );
+
+
+                setTimeout(
+                    () => {
+
+                        eventBox.classList.remove(
+                            "show"
+                        );
+
+                    },
+                    2500
+                );
+
+            }
+
+        }
+
+
+
+        /* =====================================================
+           EVENT TIMER
+        ===================================================== */
+
+        setInterval(
+            function() {
+
+                if (eventSeconds > 0) {
+
+                    eventSeconds -= 1;
+
+                    eventTimer.textContent =
+                        "⚡ Event active: "
+                        + eventSeconds
+                        + "s";
+
+                }
+
+                else {
+
+                    if (
+                        eventMultiplier !== 1
+                    ) {
+
+                        eventMultiplier = 1;
+
+                        eventTimer.textContent =
+                            "";
+
+                        eventBox.classList.remove(
+                            "show"
+                        );
+
+                    }
+
+                }
+
+            },
+            1000
+        );
+
+
+
+        /* =====================================================
+           RANDOM EVENT EVERY 20-40 SECONDS
+        ===================================================== */
+
+        function scheduleRandomEvent() {
+
+            const delay =
+                Math.random() *
+                20000
+                + 20000;
+
+
+            setTimeout(
+                function() {
+
+                    startRandomEvent();
+
+                    scheduleRandomEvent();
+
+                },
+                delay
+            );
+
+        }
+
+
+        scheduleRandomEvent();
+
+
+
+        /* =====================================================
+           AUTO CLICKER
+        ===================================================== */
+
+        setInterval(
+            function() {
+
+                if (autoPower > 0) {
+
+                    score += autoPower;
+
+                    updateScreen();
+
+                }
+
+            },
+            1000
+        );
+
+
+
+        /* =====================================================
+           RESET GAME
         ===================================================== */
 
         resetButton.addEventListener(
             "click",
             function() {
 
-                score = 0;
+                const confirmed =
+                    confirm(
+                        "Are you sure you want to reset your entire game?"
+                    );
 
-                updateCounter();
+
+                if (confirmed) {
+
+                    score = 0;
+
+                    clickPower = 1;
+
+                    autoPower = 0;
+
+                    goldenUnlocked = false;
+
+                    totalClicks = 0;
+
+                    eventMultiplier = 1;
+
+                    eventSeconds = 0;
+
+
+                    saveGame();
+
+                    updateScreen();
+
+                }
 
             }
         );
 
 
+
         /* =====================================================
-           START WEBSITE
+           START GAME
         ===================================================== */
 
-        updateCounter();
+        updateScreen();
 
     </script>
 
